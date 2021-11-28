@@ -16,6 +16,7 @@ module.exports = {
     jest: true,
   },
   rules: {
+    'semi': ['error', 'always'],
     '@typescript-eslint/explicit-member-accessibility': 1,
     '@typescript-eslint/explicit-module-boundary-types': 0,
     '@typescript-eslint/interface-name-prefix': 'off',

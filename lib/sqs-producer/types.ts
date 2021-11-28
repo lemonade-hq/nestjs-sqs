@@ -1,6 +1,6 @@
 import { MessageAttributeValue, SendMessageBatchRequestEntry } from '@aws-sdk/client-sqs';
 // import { SendMessageBatchRequestEntry } from 'aws-sdk/clients/sqs';
-import { isObject, isString, isMessageAttributeValid } from './validation'
+import { isObject, isString, isMessageAttributeValid } from './validation';
 
 export type MessageBodyAttributeMap = {
     [key: string]: MessageAttributeValue;

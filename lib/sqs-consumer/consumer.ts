@@ -9,7 +9,7 @@ import {
   DeleteMessageBatchCommand, 
   ChangeMessageVisibilityBatchCommand 
 } from '@aws-sdk/client-sqs';
-import { SdkError } from '@aws-sdk/types'
+import { SdkError } from '@aws-sdk/types';
 import * as Debug from 'debug';
 import { EventEmitter } from 'events';
 import { autoBind } from './bind';
@@ -67,7 +67,7 @@ function isConnectionError(err: Error): boolean {
 }
 
 function toSQSError(err: SdkError, message: string): SQSError {
-  return new SQSError(message, err, err.$metadata.httpStatusCode, err.name)
+  return new SQSError(message, err, err.$metadata.httpStatusCode, err.name);
 }
 
 function hasMessages(response: ReceieveMessageResponse): boolean {
@@ -224,7 +224,7 @@ export class Consumer extends EventEmitter {
 
   private async receiveMessage(params: ReceiveMessageRequest): Promise<ReceieveMessageResponse> {
     try {
-      return await this.sqs.send(params)
+      return await this.sqs.send(params);
     } catch (err) {
       throw toSQSError(err, `SQS receive message failed: ${err.message}`);
     }
@@ -239,7 +239,7 @@ export class Consumer extends EventEmitter {
     });
 
     try {
-      await this.sqs.send(deleteCmd)
+      await this.sqs.send(deleteCmd);
     } catch (err) {
       throw toSQSError(err, `SQS delete message failed: ${err.message}`);
     }
@@ -277,8 +277,8 @@ export class Consumer extends EventEmitter {
         QueueUrl: this.queueUrl,
         ReceiptHandle: message.ReceiptHandle,
         VisibilityTimeout: timeout
-      })
-      return this.sqs.send(cmd)
+      });
+      return this.sqs.send(cmd);
     } catch (err) {
       this.emit('error', err, message);
     }
@@ -367,7 +367,7 @@ export class Consumer extends EventEmitter {
     });
 
     try {
-      await this.sqs.send(cmd)
+      await this.sqs.send(cmd);
     } catch (err) {
       throw toSQSError(err, `SQS delete message failed: ${err.message}`);
     }
@@ -392,7 +392,7 @@ export class Consumer extends EventEmitter {
       }))
     });
     try {
-      return this.sqs.send(cmd)
+      return this.sqs.send(cmd);
     } catch (err) {
       this.emit('error', err, messages);
     }

@@ -30,7 +30,7 @@ export class Producer {
 
   public async queueSize(): Promise<number> {
     const cmd = new GetQueueAttributesCommand({ QueueUrl: this.queueUrl, AttributeNames: ['ApproximateNumberOfMessages'] });
-    const result = await this.sqs.send(cmd)
+    const result = await this.sqs.send(cmd);
 
     return Number(result && result.Attributes && result.Attributes.ApproximateNumberOfMessages);
   }
@@ -64,7 +64,7 @@ export class Producer {
     });
 
     const result = await this.sqs.send(params);
-    const failed = result.Failed ?? []
+    const failed = result.Failed ?? [];
     const failedMessagesBatch = failedMessages.concat(failed.map((entry) => entry.Id));
     const successfulMessagesBatch = successfulMessages.concat(result.Successful);
 
