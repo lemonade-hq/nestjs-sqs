@@ -10,6 +10,10 @@ This module provides decorator-based message handling suited for simple use.
 
 This library internally uses [bbc/sqs-producer](https://github.com/bbc/sqs-producer) and [bbc/sqs-consumer](https://github.com/bbc/sqs-consumer), and implements some more useful features on top of the basic functionality given by them.
 
+## DEPRECATION NOTICE
+
+This fork of the @ssut/nestjs-sqs package is no longer needed or actively maintained. We recommend that you switch to using the original package maintained by the author @ssut - [@ssut/nestjs-sqs](https://github.com/ssut/nestjs-sqs).
+
 ## Installation
 
 ```shell script
