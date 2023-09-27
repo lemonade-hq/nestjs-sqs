@@ -1,5 +1,6 @@
 {
   "name": "@ssut/nestjs-sqs",
+  "deprecated": "This package is deprecated. Please use the original package @ssut/nestjs-sqs",
   "version": "1.1.0",
   "description": "",
   "main": "dist/index.js",
